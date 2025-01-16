@@ -2,18 +2,27 @@
 #include <string>
 using namespace std;
 
-int main()
-{
-    string szo,result;
-    cin>>szo;
-    for(int i = 0; i < szo.size(); i++)
-    {
-            if(szo[i] == 'a' || szo[i] == 'e' || szo[i] == 'i' || szo[i] == 'o' || szo[i] == 'u')
-            {
-            szo[i] = szo[i].replace(0,"mpm");
-            }
+int main() {
+    string szo, result;
+    cin >> szo;
 
+    for (char c : szo) {
+
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            result += "mpm";
+        } else {
+            result += c;
+        }
     }
-    cout<<szo;
+    
+    string final_result;
+    for (char c : result) {
+        final_result += c;
+        if (c == 'p') {
+            final_result += 'Z';
+        }
+    }
+
+    cout << final_result << endl;
     return 0;
 }
